@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import WAIFUS from "./data/waifus";
 import Header from "./components/header/header";
@@ -7,7 +7,26 @@ function App() {
   const [waifus, setWaifus] = useState(WAIFUS);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
+  //reset the game
+  useEffect(() => {
+    if (gameOver === true) {
+      let reset = waifus.map((waifu) =>
+        Object.assign({}, waifu, { selected: false })
+      );
+
+      setWaifus(reset);
+      setGameOver(false);
+      setScore(0);
+    }
+  }, [gameOver]);
+  //update best score
+  useEffect(() => {
+    if (bestScore < score) {
+      setBestScore(score);
+    }
+  }, [score]);
   let clickWaifu = (id) => {
     console.log("click");
     let tempArr = waifus.map((waifu) => waifu);
@@ -17,11 +36,13 @@ function App() {
         if (waifu.selected === false) {
           console.log("false");
           waifu.selected = true;
+          setScore(score + 1);
         } else {
           alert("game over");
+          setGameOver(true);
         }
       }
-    }, tempArr);
+    });
     console.log(tempArr);
     setWaifus(tempArr);
   };
