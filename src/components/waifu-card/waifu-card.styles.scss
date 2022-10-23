@@ -1,15 +1,17 @@
-$width: 18rem;
-$height: 24rem;
+$width: 19rem;
+$height: 25rem;
+$primary-color: pink;
+$border-color: black;
 .waifu-card {
   width: $width;
   height: $height;
-  border: 1px solid black;
+  border: 2px solid $border-color;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   //justify-content: center;
   align-items: center;
-  background-color: cyan;
+  background-color: $primary-color;
 }
 .waifu-image {
   width: calc($width - 20px);

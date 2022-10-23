@@ -1,5 +1,6 @@
 import "./header.styles.scss";
 import ScoreBoard from "../score-board/score-board";
+
 //todo: add score board
 const Header = ({ score, bestScore }) => {
   return (
