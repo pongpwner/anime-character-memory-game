@@ -16,7 +16,11 @@ const GameOver = ({ best, score, handleClick, count, waifu, win }) => {
             pick.
           </div>
           <div className="instructions">
-            Picking everything correctly yeilds a large amount of bonus points.
+            Every 10 you pick correctly you will get 100 bonus points.
+          </div>
+          <div className="instructions">
+            If you pick everything correctly you get 50% bonus of your current
+            points.
           </div>
         </div>
 
@@ -40,18 +44,7 @@ const GameOver = ({ best, score, handleClick, count, waifu, win }) => {
     <div className="game-over ">
       <div className="modal-container win">
         <div className="instruction-container">
-          <h2>Instructions:</h2>
-          <div className="instructions">
-            You lose if you let the timer run out, or if you click the same
-            waifu twice.
-          </div>
-          <div className="instructions">
-            The time left will be added to your score after every sucessful
-            pick.
-          </div>
-          <div className="instructions">
-            Picking everything correctly yeilds a large amount of bonus points.
-          </div>
+          <h2>Congratulations!</h2>
         </div>
 
         <div className="best-score">Best:{best}</div>

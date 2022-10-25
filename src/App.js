@@ -7,6 +7,10 @@ import GameOver from "./components/game-over/game-over";
 import wow from "./assets/wow.mp3";
 import bonk from "./assets/bonk.mp3";
 import higher from "./assets/higher.mp3";
+import boing1 from "./assets/boing1.mp3";
+import boing2 from "./assets/boing2.mp3";
+import boing3 from "./assets/boing3.mp3";
+import { randomNumber } from "./utils";
 function App() {
   const [waifus, setWaifus] = useState(WAIFUS);
   const [score, setScore] = useState(0);
@@ -21,7 +25,10 @@ function App() {
   const wowSound = new Audio(wow);
   const bonkSound = new Audio(bonk);
   const higherSound = new Audio(higher);
-  wowSound.volume = 0.2;
+  const boing1Sound = new Audio(boing1);
+  const boing2Sound = new Audio(boing2);
+  const boing3Sound = new Audio(boing3);
+  wowSound.volume = 0.7;
   const restartGame = () => {
     let reset = waifus.map((waifu) =>
       Object.assign({}, waifu, { selected: false })
@@ -39,7 +46,7 @@ function App() {
     if (count === WAIFUS.length + 1) {
       higherSound.play();
       setDelay(null);
-      setScore(score + WAIFUS.length * 10);
+      setScore(Math.ceil(score * 1.5));
       setWin(true);
       setGameOver(true);
     }
@@ -50,6 +57,8 @@ function App() {
       setBestScore(score);
     }
   }, [score]);
+
+  //when waifu card is clicked
   let clickWaifu = (id) => {
     console.log(gameOver);
     console.log("click");
@@ -57,16 +66,36 @@ function App() {
 
     tempArr.forEach((waifu) => {
       if (waifu.id === id) {
+        //success
         if (waifu.selected === false) {
           waifu.selected = true;
 
           setCount(count + 1);
-          if (count % 6 === 0 && count !== 0) {
+          if (count % 10 === 0 && count !== 0) {
             wowSound.play();
+            setScore(score + 100 + time);
+          } else {
+            //play boing sound
+            let soundNumber = randomNumber(1, 3);
+            console.log(soundNumber);
+            switch (soundNumber) {
+              case 1:
+                boing1Sound.play();
+                break;
+              case 2:
+                boing2Sound.play();
+                break;
+              case 3:
+                boing3Sound.play();
+                break;
+              default:
+                break;
+            }
+
+            setScore(score + time);
+            setTime(10);
+            setDelay(1000);
           }
-          setScore(score + time);
-          setTime(10);
-          setDelay(1000);
         } else {
           bonkSound.play();
           setDelay(null);
