@@ -3,6 +3,7 @@ import "./App.scss";
 import WAIFUS from "./data/waifus";
 import Header from "./components/header/header";
 import GameBoard from "./components/game-board/game-board";
+import GameOver from "./components/game-over/game-over";
 function App() {
   const [waifus, setWaifus] = useState(WAIFUS);
   const [score, setScore] = useState(0);
@@ -10,19 +11,27 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
   const [time, setTime] = useState(10);
   const [delay, setDelay] = useState(1000);
+  const [count, setCount] = useState(0);
 
+  const restartGame = () => {
+    let reset = waifus.map((waifu) =>
+      Object.assign({}, waifu, { selected: false })
+    );
+    setWaifus(reset);
+    setScore(0);
+    setCount(0);
+    setGameOver(false);
+    setTime(10);
+    setDelay(1000);
+  };
   //reset the game
   useEffect(() => {
-    if (gameOver === true) {
-      let reset = waifus.map((waifu) =>
-        Object.assign({}, waifu, { selected: false })
-      );
-
-      setWaifus(reset);
-      setGameOver(false);
-      setScore(0);
+    if (count === WAIFUS.length) {
+      setDelay(null);
+      setScore(score + WAIFUS.length * 10);
+      setGameOver(true);
     }
-  }, [gameOver]);
+  }, [count]);
   //update best score
   useEffect(() => {
     if (bestScore < score) {
@@ -30,19 +39,21 @@ function App() {
     }
   }, [score]);
   let clickWaifu = (id) => {
+    console.log(gameOver);
     console.log("click");
     let tempArr = waifus.map((waifu) => waifu);
-    let tempWaifu = tempArr.find((waifu) => waifu.id === id);
+
     tempArr.forEach((waifu) => {
       if (waifu.id === id) {
         if (waifu.selected === false) {
           console.log("false");
           waifu.selected = true;
+          setCount(count + 1);
           setScore(score + time);
           setTime(10);
           setDelay(1000);
         } else {
-          alert("game over");
+          setDelay(null);
           setGameOver(true);
         }
       }
@@ -59,8 +70,18 @@ function App() {
         setTime={setTime}
         delay={delay}
         setDelay={setDelay}
+        setGameOver={setGameOver}
       ></Header>
       <GameBoard waifus={waifus} handleClick={clickWaifu}></GameBoard>
+
+      {gameOver ? (
+        <GameOver
+          score={score}
+          best={bestScore}
+          count={count}
+          handleClick={restartGame}
+        ></GameOver>
+      ) : null}
     </div>
   );
 }

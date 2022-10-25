@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useInterval } from "../../utils";
-const Timer = ({ time, setTime, delay, setDelay }) => {
+const Timer = ({ time, setTime, delay, setDelay, setGameOver }) => {
   useInterval(() => {
     setTime(time - 1);
   }, delay);
@@ -8,7 +8,8 @@ const Timer = ({ time, setTime, delay, setDelay }) => {
   useEffect(() => {
     if (time === 0) {
       setDelay(null);
-      alert("game Over");
+
+      setGameOver(true);
     }
   }, [time]);
 

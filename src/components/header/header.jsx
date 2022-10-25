@@ -3,7 +3,15 @@ import ScoreBoard from "../score-board/score-board";
 import Timer from "../timer/timer";
 
 //todo: add score board
-const Header = ({ score, bestScore, time, setTime, delay, setDelay }) => {
+const Header = ({
+  score,
+  bestScore,
+  time,
+  setTime,
+  delay,
+  setDelay,
+  setGameOver,
+}) => {
   return (
     <header className="header">
       <div className="title">
@@ -16,6 +24,7 @@ const Header = ({ score, bestScore, time, setTime, delay, setDelay }) => {
         setTime={setTime}
         delay={delay}
         setDelay={setDelay}
+        setGameOver={setGameOver}
       ></Timer>
       <ScoreBoard score={score} bestScore={bestScore}></ScoreBoard>
     </header>
