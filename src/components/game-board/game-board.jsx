@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import WaifuCard from "../waifu-card/waifu-card";
 import { shuffle } from "../../utils";
 import "./game-board.styles.scss";
+import WAIFUS from "../../data/waifus";
 const GameBoard = ({ waifus, handleClick, firstLoad, setFirstLoad }) => {
   const [shuffledWaifus, setShuffledWaifus] = useState(waifus);
   useEffect(() => {
