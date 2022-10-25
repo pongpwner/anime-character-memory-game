@@ -11,6 +11,7 @@ const Header = ({
   delay,
   setDelay,
   setGameOver,
+  setWaifu,
 }) => {
   return (
     <header className="header">
@@ -25,6 +26,7 @@ const Header = ({
         delay={delay}
         setDelay={setDelay}
         setGameOver={setGameOver}
+        setWaifu={setWaifu}
       ></Timer>
       <ScoreBoard score={score} bestScore={bestScore}></ScoreBoard>
     </header>

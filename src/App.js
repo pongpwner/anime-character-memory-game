@@ -12,6 +12,7 @@ function App() {
   const [time, setTime] = useState(10);
   const [delay, setDelay] = useState(1000);
   const [count, setCount] = useState(0);
+  const [waifu, setWaifu] = useState(null);
 
   const restartGame = () => {
     let reset = waifus.map((waifu) =>
@@ -48,12 +49,14 @@ function App() {
         if (waifu.selected === false) {
           console.log("false");
           waifu.selected = true;
+
           setCount(count + 1);
           setScore(score + time);
           setTime(10);
           setDelay(1000);
         } else {
           setDelay(null);
+          setWaifu(waifu);
           setGameOver(true);
         }
       }
@@ -71,6 +74,7 @@ function App() {
         delay={delay}
         setDelay={setDelay}
         setGameOver={setGameOver}
+        setWaifu={setWaifu}
       ></Header>
       <GameBoard waifus={waifus} handleClick={clickWaifu}></GameBoard>
 
@@ -80,6 +84,7 @@ function App() {
           best={bestScore}
           count={count}
           handleClick={restartGame}
+          waifu={waifu}
         ></GameOver>
       ) : null}
     </div>

@@ -1,3 +1,7 @@
+$border-color: black;
+$background-color: gray;
+$button-color1: pink;
+$button-color2: black;
 .game-over {
   position: absolute;
   top: 0;
@@ -6,13 +10,35 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
   .modal-container {
+    border-radius: 10px;
+    border: 3px solid $border-color;
+    font-size: 3rem;
+    font-weight: 700;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     font-size: 3rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: red;
-    width: 500px;
-    height: 300px;
+    background-color: $background-color;
+    width: 50rem;
+    height: 50rem;
+  }
+  .waifu {
+    width: 20rem;
+    height: 25rem;
+  }
+  button {
+    width: 50%;
+    background-color: $button-color1;
+    color: $button-color2;
+    border-color: $button-color2;
+    :hover {
+      cursor: pointer;
+    }
   }
 }

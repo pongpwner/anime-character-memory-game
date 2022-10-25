@@ -1,5 +1,5 @@
-$width: 19rem;
-$height: 25rem;
+$width: 18rem;
+$height: 21rem;
 $primary-color: pink;
 $border-color: black;
 .waifu-card {
@@ -15,14 +15,14 @@ $border-color: black;
 }
 .waifu-image {
   width: calc($width - 20px);
-  height: calc($height - 3rem);
+  height: calc($height - 2.5rem);
   object-fit: cover;
   object-position: center 10px;
   //object-position: 0px 10px;
   border-radius: 10px;
 }
 .waifu-name {
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
