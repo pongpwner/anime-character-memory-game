@@ -28,7 +28,7 @@ const GameOver = ({ best, score, handleClick, count, waifu, win }) => {
         <div className="score">You Scored:{score}</div>
 
         {waifu ? (
-          <div>{waifu.name} caught you looking twice</div>
+          <div>{waifu.name} looking twice as nice</div>
         ) : (
           <div>You were too indecisive</div>
         )}
