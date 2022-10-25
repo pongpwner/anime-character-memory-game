@@ -8,6 +8,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [time, setTime] = useState(10);
+  const [delay, setDelay] = useState(1000);
 
   //reset the game
   useEffect(() => {
@@ -36,7 +38,9 @@ function App() {
         if (waifu.selected === false) {
           console.log("false");
           waifu.selected = true;
-          setScore(score + 1);
+          setScore(score + time);
+          setTime(10);
+          setDelay(1000);
         } else {
           alert("game over");
           setGameOver(true);
@@ -48,7 +52,14 @@ function App() {
   };
   return (
     <div className="App">
-      <Header score={score} bestScore={bestScore}></Header>
+      <Header
+        score={score}
+        bestScore={bestScore}
+        time={time}
+        setTime={setTime}
+        delay={delay}
+        setDelay={setDelay}
+      ></Header>
       <GameBoard waifus={waifus} handleClick={clickWaifu}></GameBoard>
     </div>
   );
