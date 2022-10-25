@@ -1,11 +1,11 @@
 import React from "react";
-
+import "./score-board.styles.scss";
 const ScoreBoard = ({ score, bestScore }) => {
   return (
     <div className="score-board">
       <span className="score">Score:{score}</span>
       <span className="divider">{` | `}</span>
-      <span className="best-score">Best:{bestScore}</span>
+      <span className="score best">Best:{bestScore}</span>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 $border-color: black;
-$background-color: gray;
+$background-color: rgb(214, 214, 214);
 $button-color1: pink;
 $button-color2: black;
 .game-over {
@@ -37,7 +37,7 @@ $button-color2: black;
     background-color: $button-color1;
     color: $button-color2;
     border-color: $button-color2;
-    :hover {
+    &:hover {
       cursor: pointer;
     }
   }

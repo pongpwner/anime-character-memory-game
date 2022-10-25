@@ -3,18 +3,19 @@ import React, { useEffect, useState } from "react";
 import WaifuCard from "../waifu-card/waifu-card";
 import { shuffle } from "../../utils";
 import "./game-board.styles.scss";
-const GameBoard = ({ waifus, handleClick }) => {
+const GameBoard = ({ waifus, handleClick, firstLoad, setFirstLoad }) => {
   const [shuffledWaifus, setShuffledWaifus] = useState(waifus);
   useEffect(() => {
-    console.log("update");
     //shuffle waifu array
-    let shuffledArr = shuffle(waifus);
-    setShuffledWaifus(shuffledArr);
+    if (!firstLoad) {
+      let shuffledArr = shuffle(waifus);
+      setShuffledWaifus(shuffledArr);
+    } else {
+      setFirstLoad(false);
+    }
   }, [waifus]);
   return (
     <div className="game-board">
-      {console.log(shuffledWaifus)}
-      {console.log(waifus)}
       {shuffledWaifus.map((waifu) => {
         return (
           <WaifuCard

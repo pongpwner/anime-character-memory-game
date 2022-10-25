@@ -13,6 +13,7 @@ function App() {
   const [delay, setDelay] = useState(1000);
   const [count, setCount] = useState(0);
   const [waifu, setWaifu] = useState(null);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   const restartGame = () => {
     let reset = waifus.map((waifu) =>
@@ -76,7 +77,12 @@ function App() {
         setGameOver={setGameOver}
         setWaifu={setWaifu}
       ></Header>
-      <GameBoard waifus={waifus} handleClick={clickWaifu}></GameBoard>
+      <GameBoard
+        waifus={waifus}
+        handleClick={clickWaifu}
+        firstLoad={firstLoad}
+        setFirstLoad={setFirstLoad}
+      ></GameBoard>
 
       {gameOver ? (
         <GameOver

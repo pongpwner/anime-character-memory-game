@@ -17,7 +17,6 @@ const Header = ({
     <header className="header">
       <div className="title">
         <h1>Waifu Memory Game</h1>
-        <div className="instructions">Do not click the same waifu twice</div>
       </div>
       <Timer
         score={score}

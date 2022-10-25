@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useInterval } from "../../utils";
+import "./timer.styles.scss";
 const Timer = ({ time, setTime, delay, setDelay, setGameOver, setWaifu }) => {
   useInterval(() => {
     setTime(time - 1);
@@ -13,7 +14,7 @@ const Timer = ({ time, setTime, delay, setDelay, setGameOver, setWaifu }) => {
     }
   }, [time]);
 
-  return <div className="timer">timer:{time}</div>;
+  return <div className="timer">Time Left:{time}</div>;
 };
 
 export default Timer;
