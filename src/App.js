@@ -73,7 +73,9 @@ function App() {
           setCount(count + 1);
           if (count % 10 === 0 && count !== 0) {
             wowSound.play();
+
             setScore(score + 100 + time);
+            setTime(10);
           } else {
             //play boing sound
             let soundNumber = randomNumber(1, 3);
