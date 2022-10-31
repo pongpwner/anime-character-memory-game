@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useInterval } from "../../utils";
 import "./timer.styles.scss";
-import bonk from "../../assets/bonk.mp3";
+import bonk from "../../assets/sounds/bonk.mp3";
 const Timer = ({ time, setTime, delay, setDelay, setGameOver, setWaifu }) => {
   const bonkSound = new Audio(bonk);
   useInterval(() => {

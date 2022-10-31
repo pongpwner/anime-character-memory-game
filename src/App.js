@@ -4,12 +4,12 @@ import WAIFUS from "./data/waifus";
 import Header from "./components/header/header";
 import GameBoard from "./components/game-board/game-board";
 import GameOver from "./components/game-over/game-over";
-import wow from "./assets/wow.mp3";
-import bonk from "./assets/bonk.mp3";
-import higher from "./assets/higher.mp3";
-import boing1 from "./assets/boing1.mp3";
-import boing2 from "./assets/boing2.mp3";
-import boing3 from "./assets/boing3.mp3";
+import wow from "./assets/sounds/wow.mp3";
+import bonk from "./assets/sounds/bonk.mp3";
+import higher from "./assets/sounds/higher.mp3";
+import boing1 from "./assets/sounds/boing1.mp3";
+import boing2 from "./assets/sounds/boing2.mp3";
+import boing3 from "./assets/sounds/boing3.mp3";
 import { randomNumber, getRandomSubarray } from "./utils";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   const boing1Sound = new Audio(boing1);
   const boing2Sound = new Audio(boing2);
   const boing3Sound = new Audio(boing3);
-  let tileNum = 10;
+  let tileNum = 32;
   wowSound.volume = 0.7;
   const restartGame = () => {
     let reset = WAIFUS.map((waifu) =>
