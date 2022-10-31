@@ -10,9 +10,10 @@ import higher from "./assets/higher.mp3";
 import boing1 from "./assets/boing1.mp3";
 import boing2 from "./assets/boing2.mp3";
 import boing3 from "./assets/boing3.mp3";
-import { randomNumber } from "./utils";
+import { randomNumber, getRandomSubarray } from "./utils";
+
 function App() {
-  const [waifus, setWaifus] = useState(WAIFUS);
+  const [waifus, setWaifus] = useState(WAIFUS.map((waifu) => waifu));
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -28,12 +29,15 @@ function App() {
   const boing1Sound = new Audio(boing1);
   const boing2Sound = new Audio(boing2);
   const boing3Sound = new Audio(boing3);
+  let tileNum = 10;
   wowSound.volume = 0.7;
   const restartGame = () => {
-    let reset = waifus.map((waifu) =>
+    let reset = WAIFUS.map((waifu) =>
       Object.assign({}, waifu, { selected: false })
     );
-    setWaifus(reset);
+    //setWaifus(reset);
+    //console.log(WAIFUS);
+    setWaifus(getRandomSubarray(reset, tileNum));
     setScore(0);
     setCount(1);
     setWin(false);
@@ -43,7 +47,7 @@ function App() {
   };
   //win the game
   useEffect(() => {
-    if (count === WAIFUS.length + 1) {
+    if (count === waifus.length + 1) {
       higherSound.play();
       setDelay(null);
       setScore(Math.ceil(score * 1.5));
@@ -57,6 +61,16 @@ function App() {
       setBestScore(score);
     }
   }, [score]);
+
+  useEffect(() => {
+    // set the waifus array with a custom array
+    setWaifus(
+      getRandomSubarray(
+        WAIFUS.map((waifu) => waifu),
+        tileNum
+      )
+    );
+  }, []);
 
   //when waifu card is clicked
   let clickWaifu = (id) => {
