@@ -17,7 +17,11 @@ const Timer = ({ time, setTime, delay, setDelay, setGameOver, setWaifu }) => {
     }
   }, [time]);
 
-  return <div className="timer">Time Left:{time}</div>;
+  return (
+    <div role="timer" className="timer">
+      Time Left:{time}
+    </div>
+  );
 };
 
 export default Timer;

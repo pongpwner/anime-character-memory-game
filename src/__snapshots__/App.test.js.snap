@@ -1,0 +1,532 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest Snapshot testing suite Matches DOM Snapshot 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="header"
+  >
+    <div
+      className="title"
+    >
+      <h1>
+        Waifu Memory Game
+      </h1>
+    </div>
+    <div
+      className="timer"
+      role="timer"
+    >
+      Time Left:
+      10
+    </div>
+    <div
+      className="score-board"
+      role="status"
+    >
+      <span
+        className="score"
+      >
+        Score:
+        0
+      </span>
+      <span
+        className="divider"
+      >
+         | 
+      </span>
+      <span
+        className="score best"
+      >
+        Best:
+        0
+      </span>
+    </div>
+  </header>
+  <ul
+    className="game-board"
+  >
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Mai Sakurajima"
+        className="waifu-image"
+        src="mai-sakurajima.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Mai Sakurajima
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Marin Kitagawa"
+        className="waifu-image"
+        src="marin-kitagawa.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Marin Kitagawa
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Chizuru Ichinose"
+        className="waifu-image"
+        src="chizuru-mizuhara.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Chizuru Ichinose
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Erza Scarlet"
+        className="waifu-image"
+        src="erza-scarlet.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Erza Scarlet
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Yor Forger"
+        className="waifu-image"
+        src="yor-forger.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Yor Forger
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Utaha Kasumigaoka"
+        className="waifu-image"
+        src="utaha-kasumigaoka.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Utaha Kasumigaoka
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Ai Hayasaka"
+        className="waifu-image"
+        src="ai-hayasaka.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Ai Hayasaka
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Akame"
+        className="waifu-image"
+        src="akame.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Akame
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Asuka Langley"
+        className="waifu-image"
+        src="asuka-soryu-langley.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Asuka Langley
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Asuna Yuuki"
+        className="waifu-image"
+        src="asuna-yuuki.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Asuna Yuuki
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="C.C."
+        className="waifu-image"
+        src="cc.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        C.C.
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Chihaya Ayase"
+        className="waifu-image"
+        src="chihaya-ayase.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Chihaya Ayase
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Chitoge Kirisaki"
+        className="waifu-image"
+        src="chitoge-kirisaki.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Chitoge Kirisaki
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Echidna"
+        className="waifu-image"
+        src="echidna.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Echidna
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Eiko Tsukimi"
+        className="waifu-image"
+        src="eiko-tsukimi.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Eiko Tsukimi
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Erina Nakiri"
+        className="waifu-image"
+        src="erina-nakiri.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Erina Nakiri
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Ganyu"
+        className="waifu-image"
+        src="ganyu.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Ganyu
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Hitagi Senjougahara"
+        className="waifu-image"
+        src="hitagi-senjougahara.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Hitagi Senjougahara
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Hori Kyouko"
+        className="waifu-image"
+        src="hori-kyouko.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Hori Kyouko
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Jabami Yumeko"
+        className="waifu-image"
+        src="jabami-yumeko.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Jabami Yumeko
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Makise Kurisu"
+        className="waifu-image"
+        src="makise-kurisu.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Makise Kurisu
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Mashiro Shiina"
+        className="waifu-image"
+        src="mashiro-shiina.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Mashiro Shiina
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Miyuki Shiba"
+        className="waifu-image"
+        src="miyuki-shiba.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Miyuki Shiba
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Momoi Satsuki"
+        className="waifu-image"
+        src="momoi-satsuki.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Momoi Satsuki
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Nami"
+        className="waifu-image"
+        src="nami.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Nami
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Rin Tohsaka"
+        className="waifu-image"
+        src="rin-tohsaka.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Rin Tohsaka
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Sena Kashiwazaki"
+        className="waifu-image"
+        src="sena-kashiwazaki.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Sena Kashiwazaki
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Shouko Komi"
+        className="waifu-image"
+        src="shouko-komi.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Shouko Komi
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Suzune Horikita"
+        className="waifu-image"
+        src="suzune-horikita.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Suzune Horikita
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Yukino Yukinoshita"
+        className="waifu-image"
+        src="yukino-yukinoshita.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Yukino Yukinoshita
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Yuno Gasai"
+        className="waifu-image"
+        src="yuno-gasai.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Yuno Gasai
+      </span>
+    </li>
+    <li
+      className="waifu-card fade-in-image"
+      onClick={[Function]}
+    >
+      <img
+        alt="Yun Yun"
+        className="waifu-image"
+        src="yunyun.jpg"
+      />
+      <span
+        className="waifu-name"
+      >
+        Yun Yun
+      </span>
+    </li>
+  </ul>
+</div>
+`;

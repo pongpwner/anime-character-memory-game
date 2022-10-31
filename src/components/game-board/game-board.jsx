@@ -16,7 +16,7 @@ const GameBoard = ({ waifus, handleClick, firstLoad, setFirstLoad }) => {
     }
   }, [waifus]);
   return (
-    <div className="game-board">
+    <ul className="game-board">
       {shuffledWaifus.map((waifu) => {
         return (
           <WaifuCard
@@ -27,7 +27,7 @@ const GameBoard = ({ waifus, handleClick, firstLoad, setFirstLoad }) => {
           ></WaifuCard>
         );
       })}
-    </div>
+    </ul>
   );
 };
 export default GameBoard;
