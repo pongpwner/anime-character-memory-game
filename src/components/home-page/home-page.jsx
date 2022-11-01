@@ -2,7 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./home-page.styles.scss";
 
-const HomePage = ({ setGender, setBoardSize, restartGame, boardSize }) => {
+const HomePage = ({
+  setGender,
+  setBoardSize,
+  restartGame,
+  boardSize,
+  gender,
+}) => {
   //todo male female or both
   //size small or large
   //view high scores
@@ -18,7 +24,14 @@ const HomePage = ({ setGender, setBoardSize, restartGame, boardSize }) => {
         }}
       >
         <div className="form-row" onChange={(e) => setGender(e.target.value)}>
-          <input type="radio" id="both" value="both" name="gender" />
+          <input
+            type="radio"
+            id="both"
+            value="both"
+            name="gender"
+            checked={gender === "both"}
+            onChange={(e) => setGender(e.target.value)}
+          />
           <label htmlFor="both">both</label>
 
           <input
@@ -26,11 +39,19 @@ const HomePage = ({ setGender, setBoardSize, restartGame, boardSize }) => {
             id="female"
             value="female"
             name="gender"
-            defaultChecked
+            checked={gender === "female"}
+            onChange={(e) => setGender(e.target.value)}
           />
           <label htmlFor="female">female</label>
 
-          <input type="radio" id="male" value="male" name="gender" />
+          <input
+            type="radio"
+            id="male"
+            value="male"
+            name="gender"
+            checked={gender === "male"}
+            onChange={(e) => setGender(e.target.value)}
+          />
           <label htmlFor="male">male</label>
         </div>
 
@@ -61,6 +82,23 @@ const HomePage = ({ setGender, setBoardSize, restartGame, boardSize }) => {
 
         <button type="submit">Play</button>
       </form>
+      <div className="instructions">
+        <h2>Instructions:</h2>
+        <div className="instructions">
+          You lose if you let the timer run out, or if you click the same waifu
+          twice.
+        </div>
+        <div className="instructions">
+          The time left will be added to your score after every sucessful pick.
+        </div>
+        <div className="instructions">
+          Every 10 you pick correctly you will get 100 bonus points.
+        </div>
+        <div className="instructions">
+          If you pick everything correctly you get 50% bonus of your current
+          points.
+        </div>
+      </div>
     </div>
   );
 };

@@ -37,8 +37,9 @@ function App() {
   const boing3Sound = new Audio(boing3);
 
   wowSound.volume = 0.7;
-  //base state of game called when going to home pate
+  //base state of game called when going to home page
   const resetGame = () => {
+    setFirstLoad(true);
     setScore(0);
     setCount(1);
     setWin(false);
@@ -64,12 +65,14 @@ function App() {
   };
   //win the game
   useEffect(() => {
-    if (count === waifus.length + 1) {
-      higherSound.play();
-      setDelay(null);
-      setScore(Math.ceil(score * 1.5));
-      setWin(true);
-      setGameOver(true);
+    if (waifus) {
+      if (count === waifus.length + 1) {
+        higherSound.play();
+        setDelay(null);
+        setScore(Math.ceil(score * 1.5));
+        setWin(true);
+        setGameOver(true);
+      }
     }
   }, [count]);
   //update best score
@@ -95,8 +98,6 @@ function App() {
 
   //when waifu card is clicked
   let clickWaifu = (id) => {
-    console.log(gameOver);
-    console.log("click");
     let tempArr = waifus.map((waifu) => waifu);
 
     tempArr.forEach((waifu) => {
@@ -114,7 +115,7 @@ function App() {
           } else {
             //play boing sound
             let soundNumber = randomNumber(1, 3);
-            console.log(soundNumber);
+
             switch (soundNumber) {
               case 1:
                 boing1Sound.play();
@@ -142,7 +143,7 @@ function App() {
         }
       }
     });
-    console.log(tempArr);
+    //console.log(tempArr);
     setWaifus(tempArr);
   };
   return (
@@ -169,6 +170,7 @@ function App() {
                 setBoardSize={setBoardSize}
                 restartGame={restartGame}
                 boardSize={boardSize}
+                gender={gender}
               />
             }
           />
