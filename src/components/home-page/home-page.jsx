@@ -62,10 +62,10 @@ const HomePage = ({
           <input
             type="radio"
             id="small"
-            value="16"
+            value="18"
             name="board-size"
             onChange={(e) => setBoardSize(e.target.value)}
-            checked={boardSize === "16"}
+            checked={boardSize === "18"}
           />
           <label htmlFor="small">small</label>
 

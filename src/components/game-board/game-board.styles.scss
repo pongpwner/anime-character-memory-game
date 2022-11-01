@@ -2,7 +2,15 @@
   margin: 0 auto;
   width: 152rem;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+
   gap: 10px;
   list-style-type: none;
+
+  &.large {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  &.small {
+    grid-template-columns: repeat(6, 1fr);
+    width: 120rem;
+  }
 }

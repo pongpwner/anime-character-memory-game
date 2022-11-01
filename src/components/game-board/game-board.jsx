@@ -4,8 +4,15 @@ import WaifuCard from "../waifu-card/waifu-card";
 import { shuffle } from "../../utils";
 import "./game-board.styles.scss";
 import WAIFUS from "../../data/waifus";
-const GameBoard = ({ waifus, handleClick, firstLoad, setFirstLoad }) => {
+const GameBoard = ({
+  waifus,
+  handleClick,
+  firstLoad,
+  setFirstLoad,
+  boardSize,
+}) => {
   const [shuffledWaifus, setShuffledWaifus] = useState(waifus);
+  const [boardSizeClass, setBoardSizeClass] = useState("large");
   useEffect(() => {
     //shuffle waifu array
     if (!firstLoad) {
@@ -15,8 +22,16 @@ const GameBoard = ({ waifus, handleClick, firstLoad, setFirstLoad }) => {
       setFirstLoad(false);
     }
   }, [waifus]);
+  useEffect(() => {
+    if (boardSize === "18") {
+      setBoardSizeClass("small");
+    }
+    if (boardSize === "32") {
+      setBoardSizeClass("large");
+    }
+  }, [boardSize]);
   return (
-    <ul className="game-board">
+    <ul className={`game-board ${boardSizeClass}`}>
       {shuffledWaifus.map((waifu) => {
         return (
           <WaifuCard

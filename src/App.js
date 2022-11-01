@@ -182,6 +182,7 @@ function App() {
                 handleClick={clickWaifu}
                 firstLoad={firstLoad}
                 setFirstLoad={setFirstLoad}
+                boardSize={boardSize}
               ></GameBoard>
             }
           />
