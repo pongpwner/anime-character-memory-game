@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import WAIFUS from "./data/waifus";
 import Header from "./components/header/header";
@@ -11,6 +12,7 @@ import boing1 from "./assets/sounds/boing1.mp3";
 import boing2 from "./assets/sounds/boing2.mp3";
 import boing3 from "./assets/sounds/boing3.mp3";
 import { randomNumber, getRandomSubarray } from "./utils";
+import HomePage from "./components/home-page/home-page";
 
 function App() {
   const [waifus, setWaifus] = useState(WAIFUS.map((waifu) => waifu));
@@ -18,26 +20,41 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [time, setTime] = useState(10);
-  const [delay, setDelay] = useState(1000);
+  //1000 for 1 second countdown and null to pause timer
+  const [delay, setDelay] = useState(null);
   const [count, setCount] = useState(1);
   const [waifu, setWaifu] = useState(null);
   const [firstLoad, setFirstLoad] = useState(true);
+  //checks if player got everything correct
   const [win, setWin] = useState(false);
+  const [gender, setGender] = useState("female");
+  const [boardSize, setBoardSize] = useState("32");
   const wowSound = new Audio(wow);
   const bonkSound = new Audio(bonk);
   const higherSound = new Audio(higher);
   const boing1Sound = new Audio(boing1);
   const boing2Sound = new Audio(boing2);
   const boing3Sound = new Audio(boing3);
-  let tileNum = 32;
+
   wowSound.volume = 0.7;
+  //base state of game called when going to home pate
+  const resetGame = () => {
+    setScore(0);
+    setCount(1);
+    setWin(false);
+    setGameOver(false);
+    setTime(10);
+    setDelay(null);
+  };
+
+  //starts the game with current settings when hitting play again
   const restartGame = () => {
     let reset = WAIFUS.map((waifu) =>
       Object.assign({}, waifu, { selected: false })
     );
     //setWaifus(reset);
     //console.log(WAIFUS);
-    setWaifus(getRandomSubarray(reset, tileNum));
+    setWaifus(getRandomSubarray(reset, boardSize));
     setScore(0);
     setCount(1);
     setWin(false);
@@ -62,12 +79,16 @@ function App() {
     }
   }, [score]);
 
+  //test
+  useEffect(() => {
+    console.log(gender);
+  }, [gender]);
   useEffect(() => {
     // set the waifus array with a custom array
     setWaifus(
       getRandomSubarray(
         WAIFUS.map((waifu) => waifu),
-        tileNum
+        boardSize
       )
     );
   }, []);
@@ -126,22 +147,44 @@ function App() {
   };
   return (
     <div className="App">
-      <Header
-        score={score}
-        bestScore={bestScore}
-        time={time}
-        setTime={setTime}
-        delay={delay}
-        setDelay={setDelay}
-        setGameOver={setGameOver}
-        setWaifu={setWaifu}
-      ></Header>
-      <GameBoard
-        waifus={waifus}
-        handleClick={clickWaifu}
-        firstLoad={firstLoad}
-        setFirstLoad={setFirstLoad}
-      ></GameBoard>
+      <BrowserRouter>
+        <Header
+          score={score}
+          bestScore={bestScore}
+          time={time}
+          setTime={setTime}
+          delay={delay}
+          setDelay={setDelay}
+          setGameOver={setGameOver}
+          setWaifu={setWaifu}
+          resetGame={resetGame}
+        ></Header>
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <HomePage
+                setGender={setGender}
+                setBoardSize={setBoardSize}
+                restartGame={restartGame}
+                boardSize={boardSize}
+              />
+            }
+          />
+          <Route
+            path="/play"
+            element={
+              <GameBoard
+                waifus={waifus}
+                handleClick={clickWaifu}
+                firstLoad={firstLoad}
+                setFirstLoad={setFirstLoad}
+              ></GameBoard>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
 
       {gameOver ? (
         <GameOver
