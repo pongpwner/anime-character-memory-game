@@ -17,7 +17,7 @@ import HomePage from "./components/home-page/home-page";
 function App() {
   const [waifus, setWaifus] = useState(WAIFUS.map((waifu) => waifu));
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+  const [highscores, setHighscores] = useState([0]);
   const [gameOver, setGameOver] = useState(false);
   const [time, setTime] = useState(10);
   //1000 for 1 second countdown and null to pause timer
@@ -75,17 +75,17 @@ function App() {
       }
     }
   }, [count]);
-  //update best score
-  useEffect(() => {
-    if (bestScore < score) {
-      setBestScore(score);
-    }
-  }, [score]);
+  //update highscores
+  // useEffect(() => {
+  //   if (highscores[0] < score) {
+  //     setHighscores(score);
+  //   }
+  // }, [score]);
 
   //test
-  useEffect(() => {
-    console.log(gender);
-  }, [gender]);
+  // useEffect(() => {
+  //   console.log(gender);
+  // }, [gender]);
   useEffect(() => {
     // set the waifus array with a custom array
     setWaifus(
@@ -151,7 +151,7 @@ function App() {
       <BrowserRouter>
         <Header
           score={score}
-          bestScore={bestScore}
+          bestScore={highscores}
           time={time}
           setTime={setTime}
           delay={delay}
@@ -171,6 +171,7 @@ function App() {
                 restartGame={restartGame}
                 boardSize={boardSize}
                 gender={gender}
+                highscores={highscores}
               />
             }
           />
@@ -192,11 +193,12 @@ function App() {
       {gameOver ? (
         <GameOver
           score={score}
-          best={bestScore}
+          highscores={highscores}
           count={count}
           handleClick={restartGame}
           waifu={waifu}
           win={win}
+          setHighscores={setHighscores}
         ></GameOver>
       ) : null}
     </div>

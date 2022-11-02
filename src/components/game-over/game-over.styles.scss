@@ -62,4 +62,14 @@ $button-color2: black;
   .win.modal-container {
     background-color: gold;
   }
+  .highscores {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .score:nth-child(2) {
+      color: red;
+    }
+  }
 }

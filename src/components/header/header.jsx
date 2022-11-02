@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = ({
   score,
-  bestScore,
+
   time,
   setTime,
   delay,
@@ -36,7 +36,7 @@ const Header = ({
         setGameOver={setGameOver}
         setWaifu={setWaifu}
       ></Timer>
-      <ScoreBoard score={score} bestScore={bestScore}></ScoreBoard>
+      <ScoreBoard score={score}></ScoreBoard>
     </header>
   );
 };

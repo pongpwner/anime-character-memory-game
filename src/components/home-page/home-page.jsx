@@ -8,6 +8,7 @@ const HomePage = ({
   restartGame,
   boardSize,
   gender,
+  highscores,
 }) => {
   //todo male female or both
   //size small or large
@@ -98,6 +99,12 @@ const HomePage = ({
           If you pick everything correctly you get 50% bonus of your current
           points.
         </div>
+      </div>
+      <div className="highscores">
+        <h1>Highscores:</h1>
+        {highscores[0]
+          ? highscores.map((score) => <div className="score">{score}</div>)
+          : null}
       </div>
     </div>
   );

@@ -1,11 +1,38 @@
 import React from "react";
+import { useEffect } from "react";
 import WAIFUS from "../../data/waifus";
 import "./game-over.styles.scss";
-const GameOver = ({ best, score, handleClick, count, waifu, win }) => {
+const GameOver = ({
+  score,
+  handleClick,
+  count,
+  waifu,
+  win,
+  highscores,
+  setHighscores,
+}) => {
+  //check score with highscores
+  useEffect(() => {
+    //create util function check highscores
+    let temp = highscores.map((hs) => hs);
+    temp.push(score);
+    temp.sort(function (a, b) {
+      return b - a;
+    });
+    if (temp.length > 4) {
+      temp = temp.slice(0, 4);
+    }
+    setHighscores(temp);
+  }, []);
   let lose = (
     <div className="game-over">
       <div className="modal-container">
-        <div className="best-score">Best:{best}</div>
+        <div className="highscores">
+          <h1>Highscores:</h1>
+          {highscores[0]
+            ? highscores.map((score) => <div className="score">{score}</div>)
+            : null}
+        </div>
         <div className="score">You Scored:{score}</div>
 
         {waifu ? (
@@ -26,7 +53,6 @@ const GameOver = ({ best, score, handleClick, count, waifu, win }) => {
       <div className="modal-container win">
         <h2>Congratulations!</h2>
 
-        <div className="best-score">Best:{best}</div>
         <div className="score">You Scored:{score}</div>
 
         <div>You remembered everyone!</div>
