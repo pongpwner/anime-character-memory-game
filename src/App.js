@@ -75,17 +75,7 @@ function App() {
       }
     }
   }, [count]);
-  //update highscores
-  // useEffect(() => {
-  //   if (highscores[0] < score) {
-  //     setHighscores(score);
-  //   }
-  // }, [score]);
 
-  //test
-  // useEffect(() => {
-  //   console.log(gender);
-  // }, [gender]);
   useEffect(() => {
     // set the waifus array with a custom array
     setWaifus(
@@ -94,6 +84,16 @@ function App() {
         boardSize
       )
     );
+  }, []);
+
+  //retreive highscores from localstorage
+  useEffect(() => {
+    const localHighscores = JSON.parse(localStorage.getItem("highscores"));
+    if (localHighscores) {
+      setHighscores(localHighscores);
+    } else {
+      setHighscores([0]);
+    }
   }, []);
 
   //when waifu card is clicked

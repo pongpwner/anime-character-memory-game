@@ -24,6 +24,10 @@ const GameOver = ({
     }
     setHighscores(temp);
   }, []);
+  //update localstorage highscores
+  useEffect(() => {
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+  }, [highscores]);
   let lose = (
     <div className="game-over">
       <div className="modal-container">
@@ -51,6 +55,12 @@ const GameOver = ({
   let winner = (
     <div className="game-over ">
       <div className="modal-container win">
+        <div className="highscores">
+          <h1>Highscores:</h1>
+          {highscores[0]
+            ? highscores.map((score) => <div className="score">{score}</div>)
+            : null}
+        </div>
         <h2>Congratulations!</h2>
 
         <div className="score">You Scored:{score}</div>
