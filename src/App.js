@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import WAIFUS from "./data/waifus";
+import { MALES, FEMALES } from "./data/waifus";
 import Header from "./components/header/header";
 import GameBoard from "./components/game-board/game-board";
 import GameOver from "./components/game-over/game-over";
@@ -15,7 +15,7 @@ import { randomNumber, getRandomSubarray } from "./utils";
 import HomePage from "./components/home-page/home-page";
 
 function App() {
-  const [waifus, setWaifus] = useState(WAIFUS.map((waifu) => waifu));
+  const [waifus, setWaifus] = useState(FEMALES.map((waifu) => waifu));
   const [score, setScore] = useState(0);
   const [highscores, setHighscores] = useState([0]);
   const [gameOver, setGameOver] = useState(false);
@@ -27,7 +27,7 @@ function App() {
   const [firstLoad, setFirstLoad] = useState(true);
   //checks if player got everything correct
   const [win, setWin] = useState(false);
-  const [gender, setGender] = useState("female");
+  const [gender, setGender] = useState("both");
   const [boardSize, setBoardSize] = useState("32");
   const wowSound = new Audio(wow);
   const bonkSound = new Audio(bonk);
@@ -50,9 +50,22 @@ function App() {
 
   //starts the game with current settings when hitting play again
   const restartGame = () => {
-    let reset = WAIFUS.map((waifu) =>
-      Object.assign({}, waifu, { selected: false })
-    );
+    let reset = [];
+    if (gender === "female") {
+      reset = FEMALES.map((waifu) =>
+        Object.assign({}, waifu, { selected: false })
+      );
+    }
+    if (gender === "male") {
+      reset = MALES.map((waifu) =>
+        Object.assign({}, waifu, { selected: false })
+      );
+    }
+    if (gender === "both") {
+      reset = [...FEMALES, ...MALES].map((waifu) =>
+        Object.assign({}, waifu, { selected: false })
+      );
+    }
     //setWaifus(reset);
     //console.log(WAIFUS);
     setWaifus(getRandomSubarray(reset, boardSize));
@@ -78,12 +91,30 @@ function App() {
 
   useEffect(() => {
     // set the waifus array with a custom array
-    setWaifus(
-      getRandomSubarray(
-        WAIFUS.map((waifu) => waifu),
-        boardSize
-      )
-    );
+    if (gender === "female") {
+      setWaifus(
+        getRandomSubarray(
+          FEMALES.map((waifu) => waifu),
+          boardSize
+        )
+      );
+    }
+    if (gender === "male") {
+      setWaifus(
+        getRandomSubarray(
+          MALES.map((waifu) => waifu),
+          boardSize
+        )
+      );
+    }
+    if (gender === "both") {
+      setWaifus(
+        getRandomSubarray(
+          [...FEMALES, ...MALES].map((waifu) => waifu),
+          boardSize
+        )
+      );
+    }
   }, []);
 
   //retreive highscores from localstorage

@@ -34,7 +34,7 @@ import image31 from "../assets/images/female/yunyun.jpg";
 //males
 import image100 from "../assets/images/male/alucard.jpg";
 import image101 from "../assets/images/male/archer.jpg";
-import image102 from "../assets/images/male/baki.jpg";
+import image102 from "../assets/images/male/baki-hanma.jpg";
 import image103 from "../assets/images/male/claire-stanfield.jpg";
 import image104 from "../assets/images/male/david-martinez.jpg";
 import image105 from "../assets/images/male/edward-elric.jpg";
@@ -65,7 +65,7 @@ import image129 from "../assets/images/male/taichi-mashima.jpg";
 import image130 from "../assets/images/male/tanjirou-kamado.jpg";
 import image131 from "../assets/images/male/alucard.jpg";
 
-const WAIFUS = [
+export const FEMALES = [
   { name: "Mai Sakurajima", imageURL: image0, selected: false, id: 0 },
   { name: "Marin Kitagawa", imageURL: image1, selected: false, id: 1 },
   { name: "Chizuru Ichinose", imageURL: image2, selected: false, id: 2 },
@@ -135,5 +135,4 @@ export const MALES = [
   { name: "Yoshifumi Nitta", imageURL: image131, selected: false, id: 131 },
 ];
 
-export default WAIFUS;
 //{name:name , image:xxx.jpg,id:1}
