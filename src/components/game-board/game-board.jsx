@@ -39,6 +39,7 @@ const GameBoard = ({
             name={waifu.name}
             imageURL={waifu.imageURL}
             handleClick={() => handleClick(waifu.id)}
+            gender={waifu.gender}
           ></WaifuCard>
         );
       })}

@@ -1,4 +1,15 @@
 .home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    margin: 2rem 0;
+  }
   label,
   button,
   h2,
@@ -13,6 +24,29 @@
 
     .score:nth-child(2) {
       color: red;
+    }
+  }
+  .instructions-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .instruction-list {
+      list-style-type: circle;
+      .instructions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style-type: circle;
+      }
+    }
+  }
+
+  .form-row {
+    display: flex;
+    .label {
+      font-size: 2rem;
     }
   }
 }

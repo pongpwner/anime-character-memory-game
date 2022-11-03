@@ -18,14 +18,15 @@ const Header = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <header
-      className="header"
-      onClick={() => {
-        resetGame();
-        navigate("/");
-      }}
-    >
-      <h1>Waifu Memory Game</h1>
+    <header className="header">
+      <button
+        onClick={() => {
+          resetGame();
+          navigate("/");
+        }}
+      >
+        Settings
+      </button>
 
       <Timer
         score={score}

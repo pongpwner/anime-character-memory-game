@@ -1,6 +1,6 @@
 $border-color: black;
 $background-color: rgb(214, 214, 214);
-$button-color1: pink;
+$button-color1: white;
 $button-color2: black;
 .game-over {
   position: absolute;
@@ -41,8 +41,11 @@ $button-color2: black;
     background-color: $button-color1;
     color: $button-color2;
     border-color: $button-color2;
+    border: 2px solid;
     &:hover {
       cursor: pointer;
+      background-color: $button-color2;
+      color: $button-color1;
     }
   }
   .instruction-container {

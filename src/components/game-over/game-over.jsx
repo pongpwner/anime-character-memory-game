@@ -38,9 +38,10 @@ const GameOver = ({
             : null}
         </div>
         <div className="score">You Scored:{score}</div>
+        <div className="score">You got {count - 1} correctly</div>
 
         {waifu ? (
-          <div>{waifu.name} looking twice as nice</div>
+          <div>{waifu.name} bonked you</div>
         ) : (
           <div>You were too indecisive</div>
         )}

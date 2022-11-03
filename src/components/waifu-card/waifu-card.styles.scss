@@ -1,6 +1,7 @@
 $width: 18rem;
 $height: 21rem;
-$primary-color: pink;
+$female-color: pink;
+$male-color: lightblue;
 $border-color: black;
 .waifu-card {
   width: $width;
@@ -11,7 +12,7 @@ $border-color: black;
   flex-direction: column;
   //justify-content: center;
   align-items: center;
-  background-color: $primary-color;
+
   transition: opacity 0.5s;
   opacity: 1;
   &:hover {
@@ -32,6 +33,13 @@ $border-color: black;
   display: flex;
   justify-content: center;
 }
+.male {
+  background-color: $male-color;
+}
+.female {
+  background-color: $female-color;
+}
+
 // .fade-in-image {
 //   animation: fadeIn 0.6s;
 // }
