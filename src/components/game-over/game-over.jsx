@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
-import WAIFUS from "../../data/waifus";
+
 import "./game-over.styles.scss";
 const GameOver = ({
   score,
   handleClick,
   count,
-  waifu,
+  character,
   win,
   highscores,
   setHighscores,
@@ -40,13 +40,17 @@ const GameOver = ({
         <div className="score">You Scored:{score}</div>
         <div className="score">You got {count - 1} correctly</div>
 
-        {waifu ? (
-          <div>{waifu.name} bonked you</div>
+        {character ? (
+          <div>{character.name} bonked you</div>
         ) : (
           <div>You were too indecisive</div>
         )}
-        {waifu ? (
-          <img className="waifu" src={waifu.imageURL} alt={waifu.imageURL} />
+        {character ? (
+          <img
+            className="waifu"
+            src={character.imageURL}
+            alt={character.imageURL}
+          />
         ) : null}
         <button onClick={handleClick}>Play Again</button>
       </div>

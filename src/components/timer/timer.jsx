@@ -2,7 +2,14 @@ import React, { useEffect } from "react";
 import { useInterval } from "../../utils";
 import "./timer.styles.scss";
 import bonk from "../../assets/sounds/bonk.mp3";
-const Timer = ({ time, setTime, delay, setDelay, setGameOver, setWaifu }) => {
+const Timer = ({
+  time,
+  setTime,
+  delay,
+  setDelay,
+  setGameOver,
+  setCharacter,
+}) => {
   const bonkSound = new Audio(bonk);
   useInterval(() => {
     setTime(time - 1);
@@ -12,7 +19,7 @@ const Timer = ({ time, setTime, delay, setDelay, setGameOver, setWaifu }) => {
     if (time === 0) {
       bonkSound.play();
       setDelay(null);
-      setWaifu(null);
+      setCharacter(null);
       setGameOver(true);
     }
   }, [time]);

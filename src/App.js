@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import { MALES, FEMALES } from "./data/waifus";
+import { MALES, FEMALES } from "./data/characters";
 import Header from "./components/header/header";
 import GameBoard from "./components/game-board/game-board";
 import GameOver from "./components/game-over/game-over";
@@ -15,7 +15,7 @@ import { randomNumber, getRandomSubarray } from "./utils";
 import HomePage from "./components/home-page/home-page";
 
 function App() {
-  const [waifus, setWaifus] = useState(FEMALES.map((waifu) => waifu));
+  const [characters, setCharacters] = useState(FEMALES.map((char) => char));
   const [score, setScore] = useState(0);
   const [highscores, setHighscores] = useState([0]);
   const [gameOver, setGameOver] = useState(false);
@@ -23,7 +23,7 @@ function App() {
   //1000 for 1 second countdown and null to pause timer
   const [delay, setDelay] = useState(null);
   const [count, setCount] = useState(1);
-  const [waifu, setWaifu] = useState(null);
+  const [character, setCharacter] = useState(null);
   const [firstLoad, setFirstLoad] = useState(true);
   //checks if player got everything correct
   const [win, setWin] = useState(false);
@@ -52,23 +52,21 @@ function App() {
   const restartGame = () => {
     let reset = [];
     if (gender === "female") {
-      reset = FEMALES.map((waifu) =>
-        Object.assign({}, waifu, { selected: false })
+      reset = FEMALES.map((char) =>
+        Object.assign({}, char, { selected: false })
       );
     }
     if (gender === "male") {
-      reset = MALES.map((waifu) =>
-        Object.assign({}, waifu, { selected: false })
-      );
+      reset = MALES.map((char) => Object.assign({}, char, { selected: false }));
     }
     if (gender === "both") {
-      reset = [...FEMALES, ...MALES].map((waifu) =>
-        Object.assign({}, waifu, { selected: false })
+      reset = [...FEMALES, ...MALES].map((char) =>
+        Object.assign({}, char, { selected: false })
       );
     }
     //setWaifus(reset);
     //console.log(WAIFUS);
-    setWaifus(getRandomSubarray(reset, boardSize));
+    setCharacters(getRandomSubarray(reset, boardSize));
     setScore(0);
     setCount(1);
     setWin(false);
@@ -78,8 +76,8 @@ function App() {
   };
   //win the game
   useEffect(() => {
-    if (waifus) {
-      if (count === waifus.length + 1) {
+    if (characters) {
+      if (count === characters.length + 1) {
         higherSound.play();
         setDelay(null);
         setScore(Math.ceil(score * 1.5));
@@ -92,25 +90,25 @@ function App() {
   useEffect(() => {
     // set the waifus array with a custom array
     if (gender === "female") {
-      setWaifus(
+      setCharacters(
         getRandomSubarray(
-          FEMALES.map((waifu) => waifu),
+          FEMALES.map((char) => char),
           boardSize
         )
       );
     }
     if (gender === "male") {
-      setWaifus(
+      setCharacters(
         getRandomSubarray(
-          MALES.map((waifu) => waifu),
+          MALES.map((char) => char),
           boardSize
         )
       );
     }
     if (gender === "both") {
-      setWaifus(
+      setCharacters(
         getRandomSubarray(
-          [...FEMALES, ...MALES].map((waifu) => waifu),
+          [...FEMALES, ...MALES].map((char) => char),
           boardSize
         )
       );
@@ -128,14 +126,14 @@ function App() {
   }, []);
 
   //when waifu card is clicked
-  let clickWaifu = (id) => {
-    let tempArr = waifus.map((waifu) => waifu);
+  let clickCharacter = (id) => {
+    let tempArr = characters.map((char) => char);
 
-    tempArr.forEach((waifu) => {
-      if (waifu.id === id) {
+    tempArr.forEach((char) => {
+      if (char.id === id) {
         //success
-        if (waifu.selected === false) {
-          waifu.selected = true;
+        if (char.selected === false) {
+          char.selected = true;
 
           setCount(count + 1);
           if (count % 10 === 0 && count !== 0) {
@@ -168,14 +166,14 @@ function App() {
         } else {
           bonkSound.play();
           setDelay(null);
-
-          setWaifu(waifu);
+          //sussy
+          setCharacter(char);
           setGameOver(true);
         }
       }
     });
     //console.log(tempArr);
-    setWaifus(tempArr);
+    setCharacters(tempArr);
   };
   return (
     <div className="App">
@@ -188,7 +186,7 @@ function App() {
           delay={delay}
           setDelay={setDelay}
           setGameOver={setGameOver}
-          setWaifu={setWaifu}
+          setCharacter={setCharacter}
           resetGame={resetGame}
         ></Header>
         <Routes>
@@ -210,8 +208,8 @@ function App() {
             path="/play"
             element={
               <GameBoard
-                waifus={waifus}
-                handleClick={clickWaifu}
+                characters={characters}
+                handleClick={clickCharacter}
                 firstLoad={firstLoad}
                 setFirstLoad={setFirstLoad}
                 boardSize={boardSize}
@@ -227,7 +225,7 @@ function App() {
           highscores={highscores}
           count={count}
           handleClick={restartGame}
-          waifu={waifu}
+          character={character}
           win={win}
           setHighscores={setHighscores}
         ></GameOver>

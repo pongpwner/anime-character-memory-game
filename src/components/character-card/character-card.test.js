@@ -1,5 +1,5 @@
 import React from "react";
-import WaifuCard from "../waifu-card/waifu-card";
+import CharacterCard from "./character-card";
 import {
   render,
   screen,
@@ -14,11 +14,11 @@ test("waifu-card renders", () => {
     handleClick: jest.fn(),
   };
   render(
-    <WaifuCard
+    <CharacterCard
       name={obj.name}
       imageURL={obj.imageURL}
       handleClick={obj.handleClick}
-    ></WaifuCard>
+    ></CharacterCard>
   );
   const wc = screen.getByRole("listitem");
   expect(wc).toBeInTheDocument();

@@ -1,27 +1,27 @@
 //import WAIFUS from "../../data/waifus";
 import React, { useEffect, useState } from "react";
-import WaifuCard from "../waifu-card/waifu-card";
+import CharacterCard from "../character-card/character-card";
 import { shuffle } from "../../utils";
 import "./game-board.styles.scss";
-import WAIFUS from "../../data/waifus";
+
 const GameBoard = ({
-  waifus,
+  characters,
   handleClick,
   firstLoad,
   setFirstLoad,
   boardSize,
 }) => {
-  const [shuffledWaifus, setShuffledWaifus] = useState(waifus);
+  const [shuffledCharacters, setShuffledCharacters] = useState(characters);
   const [boardSizeClass, setBoardSizeClass] = useState("large");
   useEffect(() => {
     //shuffle waifu array
     if (!firstLoad) {
-      let shuffledArr = shuffle(waifus);
-      setShuffledWaifus(shuffledArr);
+      let shuffledArr = shuffle(characters);
+      setShuffledCharacters(shuffledArr);
     } else {
       setFirstLoad(false);
     }
-  }, [waifus]);
+  }, [characters]);
   useEffect(() => {
     if (boardSize === "18") {
       setBoardSizeClass("small");
@@ -32,15 +32,15 @@ const GameBoard = ({
   }, [boardSize]);
   return (
     <ul className={`game-board ${boardSizeClass}`}>
-      {shuffledWaifus.map((waifu) => {
+      {shuffledCharacters.map((char) => {
         return (
-          <WaifuCard
-            key={waifu.id}
-            name={waifu.name}
-            imageURL={waifu.imageURL}
-            handleClick={() => handleClick(waifu.id)}
-            gender={waifu.gender}
-          ></WaifuCard>
+          <CharacterCard
+            key={char.id}
+            name={char.name}
+            imageURL={char.imageURL}
+            handleClick={() => handleClick(char.id)}
+            gender={char.gender}
+          ></CharacterCard>
         );
       })}
     </ul>

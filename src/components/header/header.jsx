@@ -13,7 +13,7 @@ const Header = ({
   delay,
   setDelay,
   setGameOver,
-  setWaifu,
+  setCharacter,
   resetGame,
 }) => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const Header = ({
         delay={delay}
         setDelay={setDelay}
         setGameOver={setGameOver}
-        setWaifu={setWaifu}
+        setCharacter={setCharacter}
       ></Timer>
       <ScoreBoard score={score}></ScoreBoard>
     </header>
