@@ -1,16 +1,24 @@
 //import WAIFUS from "../../data/waifus";
 import React, { useEffect, useState } from "react";
+import { characterT } from "../../data/characters";
 import CharacterCard from "../character-card/character-card";
 import { shuffle } from "../../utils";
 import "./game-board.styles.scss";
 
+interface GameBoardProps {
+  characters: characterT[];
+  handleClick: Function;
+  firstLoad: boolean;
+  setFirstLoad: Function;
+  boardSize: string;
+}
 const GameBoard = ({
   characters,
   handleClick,
   firstLoad,
   setFirstLoad,
   boardSize,
-}) => {
+}: GameBoardProps) => {
   const [shuffledCharacters, setShuffledCharacters] = useState(characters);
   const [boardSizeClass, setBoardSizeClass] = useState("large");
   useEffect(() => {

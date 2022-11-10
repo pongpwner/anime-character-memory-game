@@ -2,6 +2,16 @@ import React from "react";
 import { useEffect } from "react";
 
 import "./game-over.styles.scss";
+import { characterT } from "../../data/characters";
+interface GameBoardProps {
+  score: number;
+  handleClick: Function;
+  count: number;
+  character: characterT | null;
+  win: boolean;
+  highscores: number[];
+  setHighscores: Function;
+}
 const GameOver = ({
   score,
   handleClick,
@@ -10,7 +20,7 @@ const GameOver = ({
   win,
   highscores,
   setHighscores,
-}) => {
+}: GameBoardProps) => {
   //check score with highscores
   useEffect(() => {
     //create util function check highscores
@@ -52,7 +62,7 @@ const GameOver = ({
             alt={character.imageURL}
           />
         ) : null}
-        <button onClick={handleClick}>Play Again</button>
+        <button onClick={() => handleClick()}>Play Again</button>
       </div>
     </div>
   );
@@ -72,7 +82,7 @@ const GameOver = ({
 
         <div>You remembered everyone!</div>
 
-        <button onClick={handleClick}>Play Again</button>
+        <button onClick={() => handleClick()}>Play Again</button>
       </div>
     </div>
   );

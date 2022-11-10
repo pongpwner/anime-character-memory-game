@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import { MALES, FEMALES } from "./data/characters";
+import { MALES, FEMALES, characterT } from "./data/characters";
 import Header from "./components/header/header";
 import GameBoard from "./components/game-board/game-board";
 import GameOver from "./components/game-over/game-over";
@@ -15,20 +15,22 @@ import { randomNumber, getRandomSubarray } from "./utils";
 import HomePage from "./components/home-page/home-page";
 
 function App() {
-  const [characters, setCharacters] = useState(FEMALES.map((char) => char));
-  const [score, setScore] = useState(0);
-  const [highscores, setHighscores] = useState([0]);
-  const [gameOver, setGameOver] = useState(false);
-  const [time, setTime] = useState(10);
+  const [characters, setCharacters] = useState<characterT[]>(
+    FEMALES.map((char) => char)
+  );
+  const [score, setScore] = useState<number>(0);
+  const [highscores, setHighscores] = useState<number[]>([0]);
+  const [gameOver, setGameOver] = useState<boolean>(false);
+  const [time, setTime] = useState<number>(10);
   //1000 for 1 second countdown and null to pause timer
-  const [delay, setDelay] = useState(null);
-  const [count, setCount] = useState(1);
-  const [character, setCharacter] = useState(null);
-  const [firstLoad, setFirstLoad] = useState(true);
+  const [delay, setDelay] = useState<number | null>(null);
+  const [count, setCount] = useState<number>(1);
+  const [character, setCharacter] = useState<characterT | null>(null);
+  const [firstLoad, setFirstLoad] = useState<boolean>(true);
   //checks if player got everything correct
-  const [win, setWin] = useState(false);
-  const [gender, setGender] = useState("both");
-  const [boardSize, setBoardSize] = useState("32");
+  const [win, setWin] = useState<boolean>(false);
+  const [gender, setGender] = useState<"female" | "male" | "both">("both");
+  const [boardSize, setBoardSize] = useState<string>("32");
   const wowSound = new Audio(wow);
   const bonkSound = new Audio(bonk);
   const higherSound = new Audio(higher);
@@ -50,7 +52,7 @@ function App() {
 
   //starts the game with current settings when hitting play again
   const restartGame = () => {
-    let reset = [];
+    let reset: characterT[] = [];
     if (gender === "female") {
       reset = FEMALES.map((char) =>
         Object.assign({}, char, { selected: false })
@@ -117,7 +119,9 @@ function App() {
 
   //retreive highscores from localstorage
   useEffect(() => {
-    const localHighscores = JSON.parse(localStorage.getItem("highscores"));
+    const localHighscores = JSON.parse(
+      localStorage.getItem("highscores") as string
+    );
     if (localHighscores) {
       setHighscores(localHighscores);
     } else {
@@ -126,7 +130,7 @@ function App() {
   }, []);
 
   //when waifu card is clicked
-  let clickCharacter = (id) => {
+  let clickCharacter = (id: number) => {
     let tempArr = characters.map((char) => char);
 
     tempArr.forEach((char) => {
@@ -180,7 +184,6 @@ function App() {
       <BrowserRouter>
         <Header
           score={score}
-          bestScore={highscores}
           time={time}
           setTime={setTime}
           delay={delay}
@@ -192,7 +195,6 @@ function App() {
         <Routes>
           <Route
             path="/"
-            exact
             element={
               <HomePage
                 setGender={setGender}

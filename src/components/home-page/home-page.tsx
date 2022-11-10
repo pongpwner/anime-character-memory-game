@@ -1,7 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./home-page.styles.scss";
-
+import { gender } from "../../data/characters";
+interface HomePageProps {
+  setGender: Function;
+  setBoardSize: Function;
+  restartGame: Function;
+  boardSize: string;
+  gender: gender;
+  highscores: number[];
+}
 const HomePage = ({
   setGender,
   setBoardSize,
@@ -9,7 +17,7 @@ const HomePage = ({
   boardSize,
   gender,
   highscores,
-}) => {
+}: HomePageProps) => {
   //todo male female or both
   //size small or large
   //view high scores
@@ -50,7 +58,10 @@ const HomePage = ({
           restartGame();
         }}
       >
-        <div className="form-row" onChange={(e) => setGender(e.target.value)}>
+        <div
+          className="form-row"
+          onChange={(e) => setGender((e.target as HTMLFormElement).value)}
+        >
           <div className="label">character pool gender:</div>
           <input
             type="radio"

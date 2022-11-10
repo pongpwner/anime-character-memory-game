@@ -64,8 +64,15 @@ import image128 from "../assets/images/male/shouyou-hinata.jpg";
 import image129 from "../assets/images/male/taichi-mashima.jpg";
 import image130 from "../assets/images/male/tanjirou-kamado.jpg";
 import image131 from "../assets/images/male/alucard.jpg";
-
-export const FEMALES = [
+export type gender = "male" | "female" | "both";
+export type characterT = {
+  name: string;
+  imageURL: any;
+  gender: gender;
+  selected: boolean;
+  id: number;
+};
+export const FEMALES: characterT[] = [
   {
     name: "Mai Sakurajima",
     imageURL: image0,
@@ -286,7 +293,7 @@ export const FEMALES = [
   },
 ];
 
-export const MALES = [
+export const MALES: characterT[] = [
   {
     name: "Alucard",
     imageURL: image100,

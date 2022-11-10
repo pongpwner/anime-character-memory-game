@@ -5,9 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 //todo: add score board
 
+interface HeaderProps {
+  score: number;
+  time: number;
+  setTime: Function;
+  delay: number | null;
+  setDelay: Function;
+  setGameOver: Function;
+  setCharacter: Function;
+  resetGame: Function;
+}
 const Header = ({
   score,
-
   time,
   setTime,
   delay,
@@ -15,7 +24,7 @@ const Header = ({
   setGameOver,
   setCharacter,
   resetGame,
-}) => {
+}: HeaderProps) => {
   const navigate = useNavigate();
   return (
     <header className="header">
@@ -29,7 +38,6 @@ const Header = ({
       </button>
 
       <Timer
-        score={score}
         time={time}
         setTime={setTime}
         delay={delay}
