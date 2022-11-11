@@ -26,7 +26,7 @@ const Heading1 = styled.h1`
 `;
 const Heading2 = styled.h2`
   font-size: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
 `;
 const Section = styled.div`
   display: flex;
@@ -36,8 +36,10 @@ const Section = styled.div`
 `;
 const P = styled.p`
   font-size: 2rem;
+  margin: 0;
 `;
 const Ul = styled.ul`
+  margin: 0;
   padding: 0;
 `;
 const Li = styled.li`
