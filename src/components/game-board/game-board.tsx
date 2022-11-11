@@ -3,8 +3,20 @@ import React, { useEffect, useState } from "react";
 import { characterT } from "../../data/characters";
 import CharacterCard from "../character-card/character-card";
 import { shuffle } from "../../utils";
-import "./game-board.styles.scss";
+//import "./game-board.styles.scss";
+import styled from "styled-components";
 
+const Ul = styled("ul")<{ boardSize: string }>`
+margin: 0 auto;
+display: grid;
+gap: 10px;
+list-style-type: none;
+grid-template-columns: ${(props) =>
+  props.boardSize === "18"
+    ? "1fr 1fr 1fr 1fr 1fr 1fr;"
+    : "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;"}
+width: ${(props) => (props.boardSize === "18" ? "120rem;" : "152rem;")}
+`;
 interface GameBoardProps {
   characters: characterT[];
   handleClick: Function;
@@ -20,7 +32,7 @@ const GameBoard = ({
   boardSize,
 }: GameBoardProps) => {
   const [shuffledCharacters, setShuffledCharacters] = useState(characters);
-  const [boardSizeClass, setBoardSizeClass] = useState("large");
+
   useEffect(() => {
     //shuffle waifu array
     if (!firstLoad) {
@@ -30,16 +42,9 @@ const GameBoard = ({
       setFirstLoad(false);
     }
   }, [characters]);
-  useEffect(() => {
-    if (boardSize === "18") {
-      setBoardSizeClass("small");
-    }
-    if (boardSize === "32") {
-      setBoardSizeClass("large");
-    }
-  }, [boardSize]);
+
   return (
-    <ul className={`game-board ${boardSizeClass}`}>
+    <Ul boardSize={boardSize}>
       {shuffledCharacters.map((char) => {
         return (
           <CharacterCard
@@ -51,7 +56,7 @@ const GameBoard = ({
           ></CharacterCard>
         );
       })}
-    </ul>
+    </Ul>
   );
 };
 export default GameBoard;

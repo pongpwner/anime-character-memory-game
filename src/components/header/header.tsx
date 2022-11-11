@@ -1,10 +1,22 @@
-import "./header.styles.scss";
 import ScoreBoard from "../score-board/score-board";
 import Timer from "../timer/timer";
 import { useNavigate } from "react-router-dom";
-
+import styled from "styled-components";
 //todo: add score board
-
+const Container = styled.header`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 4rem;
+`;
+const Settings = styled.button`
+  border: none;
+  font-size: 3rem;
+  background-color: rgba(0, 0, 0, 0);
+  &:hover {
+    cursor: pointer;
+  }
+`;
 interface HeaderProps {
   score: number;
   time: number;
@@ -27,15 +39,16 @@ const Header = ({
 }: HeaderProps) => {
   const navigate = useNavigate();
   return (
-    <header className="header">
-      <button
+    <Container>
+      <Settings
+        type="button"
         onClick={() => {
           resetGame();
           navigate("/");
         }}
       >
         Settings
-      </button>
+      </Settings>
 
       <Timer
         time={time}
@@ -46,7 +59,7 @@ const Header = ({
         setCharacter={setCharacter}
       ></Timer>
       <ScoreBoard score={score}></ScoreBoard>
-    </header>
+    </Container>
   );
 };
 

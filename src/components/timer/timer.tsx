@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import { useInterval } from "../../utils";
-import "./timer.styles.scss";
+//import "./timer.styles.scss";
 import bonk from "../../assets/sounds/bonk.mp3";
+import styled from "styled-components";
+
+const Div = styled.div`
+  font-size: 3rem;
+`;
+
 interface TimerProps {
   time: number;
   setTime: Function;
@@ -32,11 +38,7 @@ const Timer = ({
     }
   }, [time]);
 
-  return (
-    <div role="timer" className="timer">
-      Time Left:{time}
-    </div>
-  );
+  return <Div role="timer">Time Left:{time}</Div>;
 };
 
 export default Timer;

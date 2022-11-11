@@ -1,41 +1,36 @@
-$width: 18rem;
-$height: 21rem;
-$female-color: pink;
-$male-color: lightblue;
-$border-color: black;
-.character-card {
-  width: $width;
-  height: $height;
-  border: 2px solid $border-color;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  //justify-content: center;
-  align-items: center;
+// .character-card {
+//   width: $width;
+//   height: $height;
+//   border: 2px solid $border-color;
+//   border-radius: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   //justify-content: center;
+//   align-items: center;
 
-  transition: opacity 0.5s;
-  opacity: 1;
-  &:hover {
-    cursor: pointer;
-  }
-}
-.waifu-image {
-  width: calc($width - 20px);
-  height: calc($height - 2.5rem);
-  object-fit: cover;
-  object-position: center 10px;
-  //object-position: 0px 10px;
-  border-radius: 10px;
-}
-.waifu-name {
-  font-size: 1.6rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-.male {
-  background-color: $male-color;
-}
-.female {
-  background-color: $female-color;
-}
+//   transition: opacity 0.5s;
+//   opacity: 1;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// }
+// .waifu-image {
+//   width: calc($width - 20px);
+//   height: calc($height - 2.5rem);
+//   object-fit: cover;
+//   object-position: center 10px;
+//   //object-position: 0px 10px;
+//   border-radius: 10px;
+// }
+// .waifu-name {
+//   font-size: 1.6rem;
+//   margin: 0 auto;
+//   display: flex;
+//   justify-content: center;
+// }
+// .male {
+//   background-color: $male-color;
+// }
+// .female {
+//   background-color: $female-color;
+// }

@@ -1,7 +1,66 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./home-page.styles.scss";
+//import "./home-page.styles.scss";
 import { gender } from "../../data/characters";
+import styled from "styled-components";
+const HighScores = styled.ul`
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li:nth-child(2) {
+    color: red;
+  }
+`;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+`;
+const Heading1 = styled.h1`
+  font-size: 3rem;
+`;
+const Heading2 = styled.h2`
+  font-size: 2rem;
+  margin: 2rem 0;
+`;
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+`;
+const P = styled.p`
+  font-size: 2rem;
+`;
+const Ul = styled.ul`
+  padding: 0;
+`;
+const Li = styled.li`
+  font-size: 2rem;
+`;
+const FormRow = styled.div`
+  display: flex;
+  font-size: 2rem;
+`;
+const Label = styled.label`
+  font-size: 2rem;
+`;
+const Play = styled.button`
+  font-size: 2rem;
+  display: block;
+  margin: 1rem auto 0 auto;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+const Form = styled.form`
+  font-size: 2rem;
+`;
 interface HomePageProps {
   setGender: Function;
   setBoardSize: Function;
@@ -18,51 +77,40 @@ const HomePage = ({
   gender,
   highscores,
 }: HomePageProps) => {
-  //todo male female or both
-  //size small or large
-  //view high scores
   const navigate = useNavigate();
   return (
-    <div className="home-page">
-      <h1>Anime Character Memory Game</h1>
-      <div className="instructions-container">
-        <h2>Objective</h2>
-        <div className="instructions">
-          Try to click each tile without clicking the same one twice.
-        </div>
-        <h2 className="instructions">Rules</h2>
-        <ul className="instruction-list">
-          <li className="instructions">
+    <Container>
+      <Heading1>Anime Character Memory Game</Heading1>
+      <Section>
+        <Heading2>Objective</Heading2>
+        <P>Try to click each tile without clicking the same one twice.</P>
+        <Heading2>Rules</Heading2>
+        <Ul>
+          <Li>
             You lose if you let the timer run out, or if you click the same
             waifu twice.
-          </li>
-          <li className="instructions">
+          </Li>
+          <Li>
             The time left will be added to your score after every sucessful
             pick.
-          </li>
-          <li className="instructions">
-            Every 10 you pick correctly you will get 100 bonus points.
-          </li>
-          <li className="instructions">
+          </Li>
+          <Li>Every 10 you pick correctly you will get 100 bonus points.</Li>
+          <Li>
             If you pick everything correctly you get 50% bonus of your current
             points.
-          </li>
-        </ul>
-      </div>
-      <h2>Settings</h2>
-      <form
-        className="settings"
+          </Li>
+        </Ul>
+      </Section>
+      <Heading2>Settings</Heading2>
+      <Form
         onSubmit={(e) => {
           e.preventDefault();
           navigate("/play");
           restartGame();
         }}
       >
-        <div
-          className="form-row"
-          onChange={(e) => setGender((e.target as HTMLFormElement).value)}
-        >
-          <div className="label">character pool gender:</div>
+        <FormRow>
+          <Label>character pool gender:</Label>
           <input
             type="radio"
             id="both"
@@ -71,7 +119,7 @@ const HomePage = ({
             checked={gender === "both"}
             onChange={(e) => setGender(e.target.value)}
           />
-          <label htmlFor="both">both</label>
+          <Label htmlFor="both">both</Label>
 
           <input
             type="radio"
@@ -81,7 +129,7 @@ const HomePage = ({
             checked={gender === "female"}
             onChange={(e) => setGender(e.target.value)}
           />
-          <label htmlFor="female">female</label>
+          <Label htmlFor="female">female</Label>
 
           <input
             type="radio"
@@ -91,14 +139,10 @@ const HomePage = ({
             checked={gender === "male"}
             onChange={(e) => setGender(e.target.value)}
           />
-          <label htmlFor="male">male</label>
-        </div>
-
-        <div
-          className="form-row"
-          //onChange={(e) => setBoardSize(e.target.value)}
-        >
-          <div className="label">board size:</div>
+          <Label htmlFor="male">male</Label>
+        </FormRow>
+        <FormRow>
+          <Label>board size:</Label>
           <input
             type="radio"
             id="small"
@@ -107,7 +151,7 @@ const HomePage = ({
             onChange={(e) => setBoardSize(e.target.value)}
             checked={boardSize === "18"}
           />
-          <label htmlFor="small">small</label>
+          <Label htmlFor="small">small</Label>
 
           <input
             type="radio"
@@ -117,19 +161,15 @@ const HomePage = ({
             checked={boardSize === "32"}
             onChange={(e) => setBoardSize(e.target.value)}
           />
-          <label htmlFor="large">large</label>
-        </div>
-
-        <button type="submit">Play</button>
-      </form>
-
-      <div className="highscores">
-        <h2>Highscores:</h2>
-        {highscores[0]
-          ? highscores.map((score) => <div className="score">{score}</div>)
-          : null}
-      </div>
-    </div>
+          <Label htmlFor="large">large</Label>
+        </FormRow>
+        <Play type="submit">Play</Play>
+      </Form>
+      <HighScores>
+        <Heading2>High Scores</Heading2>
+        {highscores[0] ? highscores.map((score) => <li>{score}</li>) : null}
+      </HighScores>
+    </Container>
   );
 };
 

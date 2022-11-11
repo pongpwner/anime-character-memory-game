@@ -1,14 +1,14 @@
 import React from "react";
-import "./score-board.styles.scss";
+
+import styled from "styled-components";
+const Div = styled.div`
+  font-size: 3rem;
+`;
 interface ScoreBoardProps {
   score: number;
 }
 const ScoreBoard = ({ score }: ScoreBoardProps) => {
-  return (
-    <div className="score-board" role="status">
-      <span className="score">Score:{score}</span>
-    </div>
-  );
+  return <Div role="status">Score:{score}</Div>;
 };
 
 export default ScoreBoard;
