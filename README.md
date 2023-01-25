@@ -1,8 +1,16 @@
 # Anime Character Memory Game
  check out the live website https://candid-creponne-edb9ea.netlify.app/
 
-## How to play
-Try to click every character tile once without repeating.  After every tile click, the board will shuffle all tiles.
+## Objective
+  Try to click every character tile once without repeating.
+
+## Rules
+*  Click every character tile once without repeating
+*  After every tile click, the board will shuffle all tiles
+*  The game ends when all character tiles have been clicked once or when the timer runs out
+*  The amount of time left on the timer is added to the player's score after every tile click
+*  Point bonuses are awarded every 10 correct tile selections and when the player beats the game
+
 
 # Getting Started with Create React App
 
