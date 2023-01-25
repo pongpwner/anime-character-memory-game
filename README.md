@@ -1,4 +1,7 @@
 # Anime Character Memory Game
+ check out the live website https://candid-creponne-edb9ea.netlify.app/
+
+## How to play
 Try to click every character tile once without repeating.  After every tile click, the board will shuffle all tiles.
 
 # Getting Started with Create React App
