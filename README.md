@@ -1,3 +1,6 @@
+# Anime Character Memory Game
+Try to click every character tile once without repeating.  After every tile click, the board will shuffle all tiles.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
