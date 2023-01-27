@@ -23,7 +23,7 @@ Test out your memory by not clicking on the same anime character twice!
 * [Styled Components](https://styled-components.com/)
 
 ## What I Learned
-  This project is part of the [Odin Project](https://www.theodinproject.com/dashboard) curriculem.  I put my own spin on the project by adding a scoring system, timer, and sound effects.  I added a timer because I want to make it harder for players to cheat to complete the game.    
+  This project is part of the [Odin Project](https://www.theodinproject.com/dashboard) curriculem.  I put my own spin on the project by adding a scoring system, timer, and sound effects.  I added a timer because I want to make it harder for players to cheat to complete the game.\    
   Some notable skills I practiced while making this project are using styled components, array manipulation, and state management.
 State management was important for keeping track of the score, game settings, and which characters have been clicked.  The character board is made of an array of character tiles, and each time a tile is clicked, the array is shuffled.
 I also learned typescript by refactoring this from javascript to typescript. 
