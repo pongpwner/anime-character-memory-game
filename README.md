@@ -25,7 +25,7 @@ Test out your memory by not clicking on the same anime character twice!
 This project is part of the [Odin Project](https://www.theodinproject.com/dashboard) curriculem.  I put my own spin on the project by adding a scoring system, timer, and sound effects.  I added a timer because I want to make it harder for players to cheat to complete the game.  
 Some notable skills I practiced while making this project are using styled components, array manipulation, and state management.
 I also learned how to incorporate sound effects while making this project.  
-State management was important for keeping track of the score and which characters have been clicked.  The character board is made of an array of character tiles, and each time a tile is clicked, the array is shuffled.
+State management was important for keeping track of the score, game settings, and which characters have been clicked.  The character board is made of an array of character tiles, and each time a tile is clicked, the array is shuffled.
 
 ## Acknowledgements
 * [Odin Project](https://www.theodinproject.com/dashboard) 
