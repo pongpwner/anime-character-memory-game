@@ -111,7 +111,7 @@ const PlayAgain = styled.button`
   }
 `;
 
-interface GameBoardProps {
+interface GameOverProps {
   score: number;
   handleClick: Function;
   count: number;
@@ -128,7 +128,7 @@ const GameOver = ({
   win,
   highscores,
   setHighscores,
-}: GameBoardProps) => {
+}: GameOverProps) => {
   //check score with highscores
   useEffect(() => {
     //create util function check highscores

@@ -7,15 +7,15 @@ import { shuffle } from "../../utils";
 import styled from "styled-components";
 
 const Ul = styled("ul")<{ boardSize: string }>`
-margin: 0 auto;
-display: grid;
-gap: 10px;
-list-style-type: none;
-grid-template-columns: ${(props) =>
-  props.boardSize === "18"
-    ? "1fr 1fr 1fr 1fr 1fr 1fr;"
-    : "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;"}
-width: ${(props) => (props.boardSize === "18" ? "120rem;" : "152rem;")}
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+  list-style-type: none;
+  grid-template-columns: ${(props) =>
+    props.boardSize === "18"
+      ? "1fr 1fr 1fr 1fr 1fr 1fr;"
+      : "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;"};
+  width: ${(props) => (props.boardSize === "18" ? "120rem;" : "152rem;")};
 `;
 interface GameBoardProps {
   characters: characterT[];

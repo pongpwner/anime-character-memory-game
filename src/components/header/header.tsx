@@ -39,7 +39,7 @@ const Header = ({
 }: HeaderProps) => {
   const navigate = useNavigate();
   return (
-    <Container>
+    <Container data-testid="header">
       <Settings
         type="button"
         onClick={() => {

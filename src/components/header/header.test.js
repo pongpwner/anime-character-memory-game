@@ -1,11 +1,7 @@
 import React from "react";
-import Header from "../header";
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
-
+import Header from "./header";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 test("header renders", () => {
   let obj = {
     score: 0,
@@ -15,20 +11,24 @@ test("header renders", () => {
     delay: null,
     setDelay: jest.fn(),
     setGameOver: jest.fn(),
-    setWaifu: jest.fn(),
+    setCharacter: jest.fn(),
+    resetGame: jest.fn(),
   };
   render(
-    <Header
-      score={obj.score}
-      bestScore={obj.bestScore}
-      time={obj.time}
-      setTime={obj.setTime}
-      delay={obj.delay}
-      setDelay={obj.setDelay}
-      setGameOver={obj.setGameOver}
-      setWaifu={obj.setWaifu}
-    ></Header>
+    <BrowserRouter>
+      <Header
+        score={obj.score}
+        time={obj.time}
+        setTime={obj.setTime}
+        delay={obj.delay}
+        setDelay={obj.setDelay}
+        setGameOver={obj.setGameOver}
+        setCharacter={obj.setCharacter}
+        resetGame={obj.resetGame}
+      ></Header>
+    </BrowserRouter>
   );
-  const header = (screen.getByRole = "header");
+  const header = screen.getByTestId("header");
+
   expect(header).toBeInTheDocument();
 });

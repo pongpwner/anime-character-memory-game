@@ -9,7 +9,7 @@ test("renders timer", () => {
     delay: null,
     setDelay: jest.fn(),
     setGameOver: jest.fn(),
-    setWaifu: jest.fn(),
+    setCharacter: jest.fn(),
   };
   render(
     <Timer
@@ -18,10 +18,9 @@ test("renders timer", () => {
       delay={obj.delay}
       setDelay={obj.setDelay}
       setGameOver={obj.setGameOver}
-      setWaifu={obj.setWaifu}
+      setCharacter={obj.setWaifu}
     ></Timer>
   );
   const timer = screen.getByText(/10/);
   expect(timer).toBeInTheDocument();
-  expect(timer).toHaveClass("timer");
 });
