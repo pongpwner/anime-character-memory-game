@@ -81,7 +81,7 @@ const HomePage = ({
 }: HomePageProps) => {
   const navigate = useNavigate();
   return (
-    <Container>
+    <Container data-testid="container">
       <Heading1>Anime Character Memory Game</Heading1>
       <Section>
         <Heading2>Objective</Heading2>
